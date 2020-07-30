@@ -35,11 +35,11 @@ dependencies {
 
 publish {
     userOrg = 'vindiesel'
-    groupId = 'com.lxj'
+    groupId = 'com.vindiesel'
     artifactId = 'matisse'
-    publishVersion = '1.0.8'
-    repoName = 'jrepo'
-    desc = '图片，视频选择和裁剪库，知乎Matisse的增强版。'
-    website = 'https://github.com/li-xiaojun/Matisse'
+    repoName = 'maven'
+    publishVersion = '1.0.9'
+    desc = '图片，视频选择和裁剪库，知乎Matisse的增强版。fork by: https://github.com/li-xiaojun/Matisse，增加裁剪框宽高比设置'
+    website = 'https://github.com/oopyoung/Matisse'
 }
 

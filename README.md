@@ -19,9 +19,9 @@ fork by [li-xiaojun/Matisse](https://github.com/li-xiaojun/Matisse)
 
 
 ## 使用
-![Download](https://api.bintray.com/packages/li-xiaojun/jrepo/matisse/images/download.svg)
+![Download](https://api.bintray.com/packages/vindiesel/maven/matisse/images/download.svg)
 ```groovy
-implementation 'com.lxj:matisse:最新版本'
+implementation 'com.vindiesel:matisse:$last-version'
 ```
 
 ## 如何使用
