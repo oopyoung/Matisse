@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
+
 import com.cjt2325.cameralibrary.JCameraView;
 import com.cjt2325.cameralibrary.listener.ClickListener;
 import com.cjt2325.cameralibrary.listener.ErrorListener;
@@ -21,7 +22,10 @@ import com.lxj.matisse.MatisseConst;
 import com.lxj.matisse.R;
 import com.lxj.matisse.internal.entity.SelectionSpec;
 import com.yalantis.ucrop.UCrop;
+
 import java.io.File;
+
+import static com.lxj.matisse.ui.MatisseActivity.startCrop;
 
 public class CameraActivity extends AppCompatActivity {
     private JCameraView jCameraView;
@@ -77,7 +81,7 @@ public class CameraActivity extends AppCompatActivity {
                 String path = FileUtil.saveBitmap("matisse", bitmap);
                 if(mSpec.isCrop){
                     //需要裁剪
-                    MatisseActivity.startCrop(CameraActivity.this, Uri.parse("file://"+path));
+                    startCrop(CameraActivity.this, Uri.parse("file://"+path), mSpec.cropWidth, mSpec.cropHeight);
                 }else {
                     Intent intent = new Intent();
                     intent.putExtra(MatisseConst.EXTRA_RESULT_CAPTURE_IMAGE_PATH, path);
@@ -102,7 +106,7 @@ public class CameraActivity extends AppCompatActivity {
         jCameraView.setLeftClickListener(new ClickListener() {
             @Override
             public void onClick() {
-                CameraActivity.this.finish();
+                finish();
             }
         });
     }
@@ -121,7 +125,7 @@ public class CameraActivity extends AppCompatActivity {
                 setResult(RESULT_OK, result);
                 finish();
             } else {
-                Log.e("Matisse", "ucrop occur error: "+UCrop.getError(data).toString());
+                Log.e("Matisse", "ucrop occur error: "+ UCrop.getError(data).toString());
             }
         }
     }

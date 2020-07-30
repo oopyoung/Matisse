@@ -417,4 +417,14 @@ public final class SelectionCreator {
         mSelectionSpec.isCrop = isCrop;
         return this;
     }
+
+    public SelectionCreator cropWidth(int width) {
+        mSelectionSpec.cropWidth = width;
+        return this;
+    }
+
+    public SelectionCreator cropHeight(int height) {
+        mSelectionSpec.cropHeight = height;
+        return this;
+    }
 }

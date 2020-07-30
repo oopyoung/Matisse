@@ -102,6 +102,9 @@ public class SampleActivity extends AppCompatActivity implements View.OnClickLis
                         .originalEnable(true)
                         .maxSelectable(1)
                         .isCrop(false)
+                        // 裁剪框宽高比 2:3
+                        .cropWidth(2)
+                        .cropHeight(3)
                         .forResult(REQUEST_CODE_CHOOSE);
                 break;
             case R.id.jumpCapture:

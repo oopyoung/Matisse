@@ -17,7 +17,6 @@ package com.lxj.matisse.ui;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.database.Cursor;
@@ -218,7 +217,7 @@ public class MatisseActivity extends AppCompatActivity implements
                 result.putExtra(MatisseConst.EXTRA_RESULT_ORIGINAL_ENABLE, mOriginalEnable);
                 if (mSpec.isCrop && selected != null && selected.size() == 1 && selected.get(0).isImage()) {
                     //开启裁剪
-                    startCrop(this, selected.get(0).uri);
+                    startCrop(this, selected.get(0).uri, mSpec.cropWidth, mSpec.cropHeight);
                     return;
                 }
                 setResult(RESULT_OK, result);
@@ -333,7 +332,7 @@ public class MatisseActivity extends AppCompatActivity implements
             result.putExtra(MatisseConst.EXTRA_RESULT_ORIGINAL_ENABLE, mOriginalEnable);
             if (mSpec.isCrop && selectedPaths.size() == 1 && mSelectedCollection.asList().get(0).isImage()) {
                 //start crop
-                startCrop(this, selectedUris.get(0));
+                startCrop(this, selectedUris.get(0), mSpec.cropWidth, mSpec.cropHeight);
             } else {
                 setResult(RESULT_OK, result);
                 finish();
@@ -360,7 +359,7 @@ public class MatisseActivity extends AppCompatActivity implements
         }
     }
 
-    public static void startCrop(Activity context, Uri source) {
+    public static void startCrop(Activity context, Uri source, int cropWidth, int cropHeight) {
         String destinationFileName = System.nanoTime() + "_crop.jpg";
         UCrop.Options options = new UCrop.Options();
         options.setCompressionQuality(90);
@@ -375,7 +374,7 @@ public class MatisseActivity extends AppCompatActivity implements
         ta.recycle();
         File cacheFile = new File(context.getCacheDir(), destinationFileName);
         UCrop.of(source, Uri.fromFile(cacheFile))
-                .withAspectRatio(1, 1)
+                .withAspectRatio(cropWidth, cropHeight)
                 .withOptions(options)
                 .start(context);
     }

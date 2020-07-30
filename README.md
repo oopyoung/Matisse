@@ -1,3 +1,5 @@
+## 备注
+fork by [li-xiaojun/Matisse](https://github.com/li-xiaojun/Matisse)
 
 ## Matisse
 知乎Matisse的增强版，简化了使用，优化了用户体验，功能上集成了[UCrop](https://github.com/Yalantis/uCrop) + [CameraView](https://github.com/CJT2325/CameraView)。
@@ -29,6 +31,9 @@ Matisse.from(SampleActivity.this)
     .capture(true)//是否显示拍摄按钮，默认不显示
     //.capture(true, CaptureMode.All)//是否显示拍摄按钮，可以同时拍视频和图片
     .isCrop(true)//开启裁剪，默认不开启
+    // 裁剪框宽高比 2:3
+    .cropWidth(2)
+    .cropHeight(3)
     //.imageEngine(new GlideEngine()) //默认是Glide4.x版本的加载器，如果你用的是Glide4.x，则无需设置
     //.imageEngine(new Glide3Engine())//如果你用的是Glide3.x版本，请打开这个，Glide3Engine这个类在demo中
     .forResult(REQUEST_CODE_CHOOSE); //请求码

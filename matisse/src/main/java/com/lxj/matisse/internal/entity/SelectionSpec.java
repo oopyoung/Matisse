@@ -58,6 +58,8 @@ public final class SelectionSpec {
     public OnCheckedListener onCheckedListener;
     public boolean isCrop;//是否进行裁剪
     public CaptureMode captureMode = CaptureMode.Image;//默认可以
+    public int cropWidth = 1; // 裁剪宽高比
+    public int cropHeight = 1; // 裁剪宽高比
 
     private SelectionSpec() {
     }
@@ -95,6 +97,8 @@ public final class SelectionSpec {
         originalMaxSize = Integer.MAX_VALUE;
         isCrop = false;
         captureMode =  CaptureMode.Image;
+        cropWidth = 1;
+        cropHeight = 1;
     }
 
     public boolean singleSelectionModeEnabled() {
