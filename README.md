@@ -1,5 +1,6 @@
 ## 备注
 fork by [li-xiaojun/Matisse](https://github.com/li-xiaojun/Matisse)
+- 增加裁剪框宽高比设置
 
 ## Matisse
 知乎Matisse的增强版，简化了使用，优化了用户体验，功能上集成了[UCrop](https://github.com/Yalantis/uCrop) + [CameraView](https://github.com/CJT2325/CameraView)。
